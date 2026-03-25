@@ -12,6 +12,7 @@
 import ffmpeg from "fluent-ffmpeg";
 import Tesseract from "tesseract.js";
 import fs from "fs/promises";
+import { mkdirSync } from "fs"; 
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
 import sharp from "sharp";
@@ -20,7 +21,7 @@ const FRAMES_DIR = path.join(process.cwd(), "frames");
 const FRAMES_PER_VIDEO = parseInt(process.env.FRAMES_PER_VIDEO || "8", 10);
  
 // Ensure frames directory exists (safe sync check at module load)
-import { mkdirSync } from "fs";
+
 mkdirSync(FRAMES_DIR, { recursive: true });
  
 /**
