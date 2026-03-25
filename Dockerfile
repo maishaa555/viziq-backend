@@ -19,11 +19,12 @@ COPY package.json ./
 RUN npm install --omit=dev
 
 # Copy source
-COPY src/ ./src/
-COPY .env.example ./.env.example
 
-# Create runtime directories
+COPY src/ ./src/
+
 RUN mkdir -p uploads frames
+# Create runtime directories
+
 
 # Expose port
 EXPOSE 3001
